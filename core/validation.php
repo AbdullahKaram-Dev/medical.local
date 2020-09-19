@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * array of errors if found
+ */
+
 $errors = [];
 
 /**

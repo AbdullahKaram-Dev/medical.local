@@ -17,7 +17,7 @@ function getOne(string $table, string $where): array
 }
 
 
-function getAll(string $table) // : array معملتهاش هنا اررى عشان مش هعرف ارجع الريسولت بس ؟؟؟
+function getAll(string $table)
 {
     global $conn;
     $result = mysqli_query($conn, "SELECT * FROM $table");
@@ -36,7 +36,7 @@ function insert(string $table, string $values): bool
 {
     global $conn;
     $sql = mysqli_query($conn, "INSERT INTO $table $values");
-    if (isset($sql)) {
+    if ($sql) {
 
         return true;
     } else {
@@ -50,7 +50,7 @@ function update(string $table, string $values, $where): bool
 {
     global $conn;
     $sql = mysqli_query($conn, "UPDATE $table SET $values WHERE $where");
-    if (isset($sql)) {
+    if ($sql) {
 
         return true;
     } else {
