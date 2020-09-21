@@ -95,7 +95,7 @@
         </div>
     </div>
 </div>
-<script src="<?php echo URL;  ?>assets/js/jquery-3.5.1.slim.min.js"></script>
-<script src="<?php echo URL;  ?>assets/js/bootstrap.js"></script>
+<script src="<?php echo URL; ?>assets/js/jquery-3.5.1.slim.min.js"></script>
+<script src="<?php echo URL; ?>assets/js/bootstrap.js"></script>
 </body>
 </html>

@@ -1,76 +1,72 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php require_once '../../app.php'; ?>
+<?php Super_admin(); ?>
+<?php require_once ADMIN . "inc/header.php"; ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<?php
 
-    <title>Medical Services</title>
-  </head>
-  <body>
+if (isset($_POST['submit'])){
 
+    $Role = ['admin','super_admin'];
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">A-ULER</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    foreach ($_POST as $key => $value){
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Cities
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Add New</a>
-                    <a class="dropdown-item" href="#">View All</a>
-                </div>
-            </li>
+        $$key = prepareInput($_POST[$key]);
+    }
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Services
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Add New</a>
-                    <a class="dropdown-item" href="#">View All</a>
-                </div>
-            </li>
+    if (! isRequired($name)){
+        $errors['name'] = 'name is required';
+    } elseif (! isString($name)){
+        $errors['name'] = 'name must be string';
+    } elseif (! isBetween($name,5,20)){
+        $errors['name'] = 'name must between 5 and 20 chars';
+    }
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Managers
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Add New</a>
-                    <a class="dropdown-item" href="#">View All</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Orders</a>
-            </li>
+    if (! isRequired($email)){
+        $errors['email'] = 'email is required';
+    } elseif (! isBetween($email,20,50)){
+        $errors['email'] = 'email must between 20 and 50 chard';
+    } elseif (! isEmail($email)){
+        $errors['email'] = 'must be valid email';
+    }
 
+    if (! isRequired($password)){
+        $errors['password'] = 'password is required';
+    } elseif(! isString($password)){
+        $errors['password'] = 'password must be string';
+    } elseif (! isBetween($password,5,20)){
+        $errors['password'] = 'password must between 5 and 20 chars';
+    }
 
+    if (! in_array($type,$Role)){
+        $errors['type'] = 'this type is invalid';
+    }
 
-            <li class="nav-item active">
-                <a class="nav-link" href="#" target="_blank">Visit Site <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
+    if (empty($errors)){
 
-        <form class="form-inline my-2 my-lg-0" method="POST" action="#">
-            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" name="logout">Logout</button>
-        </form>
-       
-    </div>
-</nav>
+        $password = password_hash($password,PASSWORD_DEFAULT);
+
+        $data = [
+
+          'admin_name'     => "$name",
+          'admin_email'    => "$email",
+          'admin_password' => "$password",
+          'admin_type'     => "$type",
+                ];
+
+        $is_inserted = insert("admins",$data);
+        if ($is_inserted){
+            $success = 'new admin added successfully';
+        }else{
+            $query_error = 'error was happen try again later';
+        }
+    }
 
 
+}
+
+
+
+?>
 
 <div class="container">
     <div class="row">
@@ -78,25 +74,26 @@
         <div class="card-header">
             <h3 class="text-center">Add New Admin</h3>
             <div>
+                <?php require_once ADMIN.'inc/messages.php'; ?>
                 <form class="border p-5 my-3 " method="POST" action="">
                     <div class="form-group">
-                        <label for="name"  class="text-dark "> Name</label>
+                        <label for="name"  class="text-dark "> Name <?php getError('name'); ?></label>
                         <input type="text" name="name"  class="form-control" id="name">
                     </div>
 
                     <div class="form-group">
-                        <label for="email"  class="text-dark "> Email</label>
-                        <input type="email" name="email" class="form-control" id="email">
+                        <label for="email"  class="text-dark "> Email <?php getError('email'); ?></label>
+                        <input type="text" name="email" class="form-control" id="email">
                     </div>
                     <div class="form-group">
-                        <label for="type"  class="text-dark "> Type</label>
+                        <label for="type"  class="text-dark "> Type <?php getError('type'); ?></label>
                         <select name="type" class="form-control" id="type">
                             <option value="admin">Admin </option>
                             <option value="super_admin">Super Admin </option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="name"  class="text-dark "> Password</label>
+                        <label for="name"  class="text-dark "> Password <?php getError('password'); ?></label>
                         <input type="password" name="password"  class="form-control" id="name">
                     </div>
 
@@ -111,28 +108,4 @@
 
     </div>
     </div>
-
-    <script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.js"></script>
-        <script>
-
-            $(".delete-record").click(()=>{
-                let state = confirm("Are You Shure From Deleteing This Order ?");
-                if(state)
-                {
-                    return true;
-                }
-                else 
-                {
-                    return false;
-                }
-            })
-
-        </script>
-
-
-
-    </body>
-</html>
-
+<?php require_once ADMIN . "inc/footer.php"; ?>

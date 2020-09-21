@@ -63,3 +63,15 @@ function getError(string $key)
 
     }
 }
+
+
+function IsNumeric(string $number):bool
+{
+    if (is_numeric($number)){
+
+        return true;
+    }else{
+        return false;
+    }
+}
+

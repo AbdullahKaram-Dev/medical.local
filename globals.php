@@ -11,7 +11,6 @@ define('ADMIN',ROOT.'admin/');
 define('ASSETS',ROOT.'assets/');
 define('AUTH',ROOT.'auth/');
 define('CORE',ROOT.'core/');
-define('INC',ROOT.'inc/');
 
 
 // Site URL
