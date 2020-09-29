@@ -28,10 +28,10 @@
                     <td><?php typeCount(); ?></td>
                     <td><?php echo ucfirst($service['service_name']); ?></td>
                     <td>
-                        <a href="<?php echo AURL . "service/edit.php?service_id=" . $service['service_id'] ?>" class="btn btn-info" >Edit</a>
+                        <a href="<?php echo AURL . "service/edit/" . $service['service_id'] ?>" class="btn btn-info" >Edit</a>
                     </td>
                     <td>
-                        <a href="<?php echo AURL . "service/delete.php?service_id=" . $service['service_id'] ?>" class="btn btn-danger" >Delete</a>
+                        <a href="<?php echo AURL . "service/delete/" . $service['service_id'] ?>" class="btn btn-danger" >Delete</a>
                     </td>
                 </tr>
         <?php endforeach; ?>

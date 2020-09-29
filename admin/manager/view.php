@@ -30,10 +30,10 @@
                     <td><?php echo $user['admin_type']; ?></td>
 
                     <td>
-                        <a href="<?php echo AURL.'manager/edit.php?admin_id='.$user['admin_id']; ?>" class="btn btn-info" >Edit</a>
+                        <a href="<?php echo AURL.'manager/edit/'.$user['admin_id']; ?>" class="btn btn-info" >Edit</a>
                     </td>
                     <td>
-                        <a href="<?php echo AURL.'manager/delete.php?admin_id='.$user['admin_id']; ?>" class="btn btn-danger" >Delete</a>
+                        <a href="<?php echo AURL.'manager/delete/'.$user['admin_id']; ?>" class="btn btn-danger" >Delete</a>
                     </td>
                 </tr>
             <?php endforeach;  ?>

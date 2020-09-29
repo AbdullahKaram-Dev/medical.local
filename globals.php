@@ -15,8 +15,8 @@ define('CORE',ROOT.'core/');
 
 // Site URL
 
-define('URL','http://localhost/medicaleraasoft/');
-define('AURL','http://localhost/medicaleraasoft/admin/');
+define('URL','http://medical.local/');
+define('AURL','http://medical.local/admin/');
 
 // Site TITLE
 

@@ -1,0 +1,53 @@
+RewriteEngine On
+
+RewriteRule ^admin/city/view$ admin/city/view.php
+RewriteRule ^admin/city/add$ admin/city/add.php
+
+RewriteRule ^admin/service/view$ admin/service/view.php
+RewriteRule ^admin/service/add$ admin/service/add.php
+
+RewriteRule ^admin/manager/add$ admin/manager/add.php
+RewriteRule ^admin/manager/view$ admin/manager/view.php
+
+RewriteRule ^admin/order/view$ admin/order/view.php
+
+RewriteRule ^admin/city/edit/(\d+)$   admin/city/edit.php?city_id=$1
+RewriteRule ^admin/city/delete/(\d+)$ admin/city/delete.php?city_id=$1
+
+RewriteRule ^admin/service/edit/(\d+)$ admin/service/edit.php?service_id=$1
+RewriteRule ^admin/service/delete/(\d+)$ admin/service/delete.php?service_id=$1
+
+RewriteRule ^admin/manager/edit/(\d+)$ admin/manager/edit.php?admin_id=$1
+RewriteRule ^admin/manager/delete/(\d+)$ admin/manager/delete.php?admin_id=$1
+
+RewriteRule ^admin/order/delete/(\d+)$ admin/order/delete.php?order_id=$1
+
+RewriteRule ^auth/login$ auth/login.php
+
+RewriteRule ^admin$ admin/index.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

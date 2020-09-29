@@ -34,7 +34,7 @@ function Super_admin()
 
 function auth()
 {
-    if (empty($_SESSION['admin_type'])){
+    if (empty($_SESSION['admin_id'])){
 
         header("LOCATION:". URL.'auth/login.php');
     }

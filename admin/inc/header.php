@@ -29,8 +29,8 @@
                     Cities
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?php echo AURL . "city/add.php"; ?>">Add New</a>
-                    <a class="dropdown-item" href="<?php echo AURL . "city/view.php"; ?>">View All</a>
+                    <a class="dropdown-item" href="<?php echo AURL . "city/add"; ?>">Add New</a>
+                    <a class="dropdown-item" href="<?php echo AURL . "city/view"; ?>">View All</a>
                 </div>
             </li>
 
@@ -39,8 +39,8 @@
                     Services
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?php echo AURL . "service/add.php"; ?>">Add New</a>
-                    <a class="dropdown-item" href="<?php echo AURL . "service/view.php"; ?>">View All</a>
+                    <a class="dropdown-item" href="<?php echo AURL . "service/add"; ?>">Add New</a>
+                    <a class="dropdown-item" href="<?php echo AURL . "service/view"; ?>">View All</a>
                 </div>
             </li>
 
@@ -49,12 +49,12 @@
                     Managers
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?php echo AURL. 'manager/add.php'; ?>">Add New</a>
-                    <a class="dropdown-item" href="<?php echo AURL. 'manager/view.php'; ?>">View All</a>
+                    <a class="dropdown-item" href="<?php echo AURL. 'manager/add'; ?>">Add New</a>
+                    <a class="dropdown-item" href="<?php echo AURL. 'manager/view'; ?>">View All</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo AURL . "order/view.php"; ?>">Orders</a>
+                <a class="nav-link" href="<?php echo AURL . "order/view"; ?>">Orders</a>
             </li>
 
 

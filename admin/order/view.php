@@ -40,7 +40,7 @@
                     <td scope="col"><b><?php echo $order['order_created_at']; ?></b></td>
 
                     <td>
-                        <a href="<?php echo AURL . "order/delete.php?order_id=" . $order['order_id'];  ?>" class="btn btn-danger delete-record" >Delete</a>
+                        <a href="<?php echo AURL . "order/delete/" . $order['order_id'];  ?>" class="btn btn-danger delete-record" >Delete</a>
                     </td>
                 </tr>
         <?php endforeach;  ?>

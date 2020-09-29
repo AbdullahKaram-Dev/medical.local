@@ -27,10 +27,10 @@
                     <td> <?php typeCount(); ?> </td>
                     <td><?php echo ucfirst($city['city_name']); ?></td>
                     <td>
-                        <a href="<?php echo AURL . "city/edit.php?city_id=" . $city['city_id'] ?>" class="btn btn-info" >Edit</a>
+                        <a href="<?php echo AURL . "city/edit/" .$city['city_id'] ?>" class="btn btn-info" >Edit</a>
                     </td>
                     <td>
-                        <a href="<?php echo AURL . "city/delete.php?city_id=" . $city['city_id'] ?>" class="btn btn-danger" >Delete</a>
+                        <a href="<?php echo AURL . "city/delete/" . $city['city_id'] ?>" class="btn btn-danger" >Delete</a>
                     </td>
                 </tr>
         <?php endforeach; ?>
